@@ -77,6 +77,9 @@ for essay in pdflist:
     else:
         text = textract.process(os.path.join("../pdf_folder/" + essay), method='tesseract', language='eng')
         
+        #close the pdf file
+        fp.close()
+        
         #this is an incomplete list and can probably be done more elegantly
         text0 = str(text).replace('\n',' ')
         text1 = text0.replace('\xe2\x80\x99','\'')
