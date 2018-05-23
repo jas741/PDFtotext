@@ -17,7 +17,7 @@ pdflist = [x for x in os.listdir("../pdf_folder") if x.endswith(".pdf")==True]
 
 for essay in pdflist:
     
-    #youd want to do this differently if your pdfs are password protected
+    #if distinct pdfs have distinct passwords, `password` should be a list, given before the loop begins.
     password = ""
     extracted_text = ""
         
