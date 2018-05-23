@@ -13,7 +13,7 @@ import textract
 
 #intended to be run from the folder you want the new text files to save to, a sibling of the pdf_folder
 
-pdflist = [x for x in os.listdir("../splitpom2files") if x.endswith(".pdf")==True]
+pdflist = [x for x in os.listdir("../pdf_folder") if x.endswith(".pdf")==True]
 
 for essay in pdflist:
     
@@ -22,7 +22,7 @@ for essay in pdflist:
     extracted_text = ""
         
     # Open and read the pdf file in binary mode
-    fp = open(os.path.join("../splitpom2files/" + essay), "rb")
+    fp = open(os.path.join("../pdf_folder/" + essay), "rb")
 
     # Create parser object to parse the pdf content
     parser = PDFParser(fp)
@@ -75,7 +75,7 @@ for essay in pdflist:
 
 
     else:
-        text = textract.process(os.path.join("../splitpom2files/" + essay), method='tesseract', language='eng')
+        text = textract.process(os.path.join("../pdf_folder/" + essay), method='tesseract', language='eng')
         
         #this is an incomplete list and can probably be done more elegantly
         text0 = str(text).replace('\n',' ')
@@ -93,5 +93,4 @@ for essay in pdflist:
 
 
 
-# just chck for empty string, or not extractable or both?  see if i can find any that arent extractable...
 
